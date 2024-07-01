@@ -37,13 +37,16 @@ const Login = (props: Props) => {
   //   );
   return (
     <div>
-      <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+      <div className="h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div className="w-full m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <ToastContainer />
-          <div className="flex-1 flex flex-column items-center justify-center text-center">
-            <div className="w-full h-full bg-contain bg-center bg-no-repeat bg-logo">
+          <div className="flex-1 flex flex-col items-center justify-center text-center p-12">
+            <div className="w-1/2 h-1/2 bg-contain bg-center bg-no-repeat bg-logo hidden lg:flex"></div>
+            <div className="text-4xl text-brown-700">
+              NIT Rourkela Mess Manager
             </div>
           </div>
+          <div className="w-px h-full bg-gray-100 text-gray-900"></div>
           <div className="lg:w-1/2 dm:w-full sm:p-12">
             <div>
               <img
@@ -97,7 +100,7 @@ const Login = (props: Props) => {
                       Don't have an account??{" "}
                       <Link
                         className="text-[#0e0a40] font-bold"
-                        href={"/signup"}
+                        to="/Signup"
                       >
                         {" "}
                         Sign Up
