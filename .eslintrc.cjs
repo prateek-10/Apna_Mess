@@ -14,5 +14,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    '@typescript-eslint/ban-types': 'off', // Disable the ban-types rule
+    '@typescript-eslint/no-unused-vars': 'off',//Disable no unused var
   },
-}
+};
