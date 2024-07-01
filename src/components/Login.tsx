@@ -100,7 +100,7 @@ const Login = (props: Props) => {
                       Don't have an account??{" "}
                       <Link
                         className="text-[#0e0a40] font-bold"
-                        to="/Signup"
+                        to="/Register"
                       >
                         {" "}
                         Sign Up
