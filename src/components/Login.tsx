@@ -5,18 +5,20 @@ import { ToastContainer, toast } from "react-toastify";
 type Props = {};
 
 const Login = (props: Props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   //   const [name, setName] = useState("");
-  const [load, setLoad] = useState(false);
+  const [load, setLoad] = useState<boolean>(false);
 
-  const changeEmail = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const changeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     setEmail(event.target.value);
     setLoad(!load);
     // console.log(email);
   };
 
-  const changePassword = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const changePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     setPassword(event.target.value);
     setLoad(!load);
     // console.log(password);
@@ -85,9 +87,9 @@ const Login = (props: Props) => {
                       className="w-6 h-6 -ml-2"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                       <circle cx="8.5" cy="7" r="4" />
@@ -98,10 +100,7 @@ const Login = (props: Props) => {
                   <div className="my-12 border-b text-center">
                     <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                       Don't have an account??{" "}
-                      <Link
-                        className="text-[#0e0a40] font-bold"
-                        to="/Register"
-                      >
+                      <Link className="text-[#0e0a40] font-bold" to="/Register">
                         {" "}
                         Sign Up
                       </Link>

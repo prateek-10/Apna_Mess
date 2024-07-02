@@ -1,43 +1,58 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { supabase } from "../supabaseClient";
 
 type Props = {};
 
 const Register = (props: Props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [load, setLoad] = useState(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [roomNumber, setRoomNumber] = useState<string>("");
+  const [studentNumber, setstudentNumber] = useState<string>("");
 
-  const changeEmail = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  // const [user, setUser] = useState<any>(null);
+
+  const handleRegister = async () => {
+   
+  };
+  const changeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-    setLoad(!load);
     // console.log(email);
   };
 
-  const changePassword = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const changePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
-    setLoad(!load);
     // console.log(password);
   };
 
-  const changeName = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const changeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
-    setLoad(!load);
     // console.log(name);
   };
+
+  const changeStudentNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setstudentNumber(event.target.value);
+    // console.log(studentNumber);
+  };
+  const changeRoomNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRoomNumber(event.target.value);
+    // console.log(roomNumber);
+  };
+
   return (
     <div>
       <div className="h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div className="w-full m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
-        <div className="flex-1 flex flex-col items-center justify-center text-center p-12">
+          <div className="flex-1 flex flex-col items-center justify-center text-center p-12">
             <div className="w-1/2 h-1/2 bg-contain bg-center bg-no-repeat bg-logo hidden lg:flex"></div>
             <div className="text-4xl text-brown-700">
               NIT Rourkela Mess Manager
             </div>
           </div>
+          <div className="w-px h-full bg-gray-100 text-gray-900"></div>
           <div className="lg:w-1/2 xl:w-5/12 p-12 flex justify-centre items-center">
-          <div>
+            <div>
               {/* <img
                 src="/NIT-Rourkela.png"
                 className="w-96 mx-auto inset-0 bg-blue-500"
@@ -86,24 +101,28 @@ const Register = (props: Props) => {
                     className="w-full mt-5 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                     type="text"
                     placeholder="Student Number"
+                    value={studentNumber}
+                    onChange={changeStudentNumber}
                   />
                   <input
                     className="w-full mt-5 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                     type="text"
                     placeholder="Room Number"
+                    value={roomNumber}
+                    onChange={changeRoomNumber}
                   />
 
                   <button
-                    // onClick={signup}
+                    onClick={handleRegister}
                     className="mt-9 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-[200px] m-auto py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                   >
                     <svg
                       className="w-6 h-6 -ml-2"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                       <circle cx="8.5" cy="7" r="4" />
@@ -125,6 +144,14 @@ const Register = (props: Props) => {
             </div>
           </div>
         </div>
+        {/* {user && (
+        <div>
+          <h2>User Information</h2>
+          <p>ID: {user.id}</p>
+          <p>Email: {user.email}</p>
+          
+        </div>
+      )} */}        
       </div>
     </div>
   );
