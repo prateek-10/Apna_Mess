@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import Navbar from "./Navbar";
 
 type Props = {};
 
@@ -37,6 +38,7 @@ const Login = (props: Props) => {
   //   );
   return (
     <div>
+      <Navbar />
       <div className="h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div className="w-full m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <ToastContainer />
@@ -98,10 +100,7 @@ const Login = (props: Props) => {
                   <div className="my-12 border-b text-center">
                     <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                       Don't have an account??{" "}
-                      <Link
-                        className="text-[#0e0a40] font-bold"
-                        to="/Register"
-                      >
+                      <Link className="text-[#0e0a40] font-bold" to="/Register">
                         {" "}
                         Sign Up
                       </Link>
