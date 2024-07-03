@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../supabaseClient";
+import supabase from "../supabaseClient";
 
 type Props = {};
 
@@ -14,7 +14,45 @@ const Register = (props: Props) => {
   // const [user, setUser] = useState<any>(null);
 
   const handleRegister = async () => {
-   
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            name: name,
+            email: email,
+            studentnumber:studentNumber,
+            roomnumber:roomNumber
+          },
+        },
+      });
+
+      if (error) {
+        console.error("Error during registration:", error.message);
+        return;
+      }
+
+      // Registration successful, now update user profileF
+      // const { data, error: profileError } = await supabase
+      //   .from("profiles")
+      //   .insert({
+      //     id: user?.id,
+      //     name: name,
+      //     email: email,
+      //     studentnumber: studentNumber,
+      //     roomnumber: roomNumber,
+      //   });
+
+      // if (profileError) {
+      //   console.error("Error updating profile:", profileError.message);
+      //   return;
+      // }
+
+      console.log("Registration successful:", data);
+    } catch (error) {
+      console.error("Error during registration:", error.message);
+    }
   };
   const changeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -151,7 +189,7 @@ const Register = (props: Props) => {
           <p>Email: {user.email}</p>
           
         </div>
-      )} */}        
+      )} */}
       </div>
     </div>
   );
