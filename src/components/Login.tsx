@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+
 import supabase from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
+
+import Navbar from "./Navbar";
+
 
 type Props = {};
 
@@ -47,6 +51,7 @@ const Login = (props: Props) => {
 
   return (
     <div>
+      <Navbar />
       <div className="h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div className="w-full m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <ToastContainer />
