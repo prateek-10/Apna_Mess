@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import supabase from "../supabaseClient";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
@@ -13,6 +14,7 @@ const Register = (props: Props) => {
 
   // const [user, setUser] = useState<any>(null);
 
+  const navigate = useNavigate();
   const handleRegister = async () => {
     try {
       const { data, error } = await supabase.auth.signUp({
@@ -22,8 +24,8 @@ const Register = (props: Props) => {
           data: {
             name: name,
             email: email,
-            studentnumber:studentNumber,
-            roomnumber:roomNumber
+            studentnumber: studentNumber,
+            roomnumber: roomNumber,
           },
         },
       });
@@ -50,8 +52,9 @@ const Register = (props: Props) => {
       // }
 
       console.log("Registration successful:", data);
+      navigate("/");
     } catch (error) {
-      console.error("Error during registration:", error.message);
+      console.error("Error during registration:", (error as Error).message);
     }
   };
   const changeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {

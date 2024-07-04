@@ -1,42 +1,50 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import supabase from "../supabaseClient";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Login = (props: Props) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  //   const [name, setName] = useState("");
-  const [load, setLoad] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   const changeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
     setEmail(event.target.value);
-    setLoad(!load);
     // console.log(email);
   };
 
   const changePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
     setPassword(event.target.value);
-    setLoad(!load);
     // console.log(password);
   };
 
-  //   const changeName = async (event: React.ChangeEvent<HTMLInputElement>) => {
-  //     setName(event.target.value);
-  //     setLoad(!load);
-  //     // console.log(name);
-  //   };
+  const SignIn = async () => {
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+      console.log(email);
+      console.log(password);
+      if (error) {
+        console.error("Error during registration:", error.message);
+        return;
+      }
 
-  //   return (
-  //     <div>
-  //       <input type="email" value={email} onChange={changeEmail} />
-  //       <input type="password" value={password} onChange={changePassword} />
-  //       <input type="text" value={name} onChange={changeName} />
-  //     </div>
-  //   );
+      console.log("Registration successful:", data);
+      toast("Signed In");
+      navigate("/Dashboard");
+    } catch (error) 
+    {
+      console.error("Error during Signing In:", (error as Error).message);
+      toast("Incorrect Email or Password");
+    }
+  };
+
   return (
     <div>
       <div className="h-screen bg-gray-100 text-gray-900 flex justify-center">
@@ -80,7 +88,7 @@ const Login = (props: Props) => {
                     onChange={changePassword}
                   />
                   <button
-                    // onClick={signin}
+                    onClick={SignIn}
                     className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-[200px] m-auto py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                   >
                     <svg

@@ -6,6 +6,7 @@ import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ContactUs from "./components/OurHostels";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             {/* <Route path="/EntryHome" element={<EntryHome />} /> */}
             <Route path="/OurHostels" element={<ContactUs />} />
             {/* <Route path="/ContactUs" element={<ContactUs />} /> */}
+            <Route path="/Dashboard" element={<Dashboard />} />
           </Routes>
         </Router>
       </div>
