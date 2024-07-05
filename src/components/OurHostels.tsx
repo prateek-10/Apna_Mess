@@ -1,5 +1,6 @@
 import React from "react";
 import { FaBed, FaFemale, FaUsers } from "react-icons/fa";
+import Navbar from "./Navbar";
 
 type Props = {};
 
@@ -380,6 +381,7 @@ const VKuraen = (props: Props) => {
 const OutHostels = (props: Props) => {
   return (
     <div>
+      <Navbar />
       <div className="bg-gray-100 text-gray-900 flex justify-center">
         <div className="w-full m-0 sm:m-20 bg-white shadow sm:rounded-lg flex-col justify-center flex-1">
           <div>
