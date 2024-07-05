@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import ContactUs from "./components/OurHostels";
 import Dashboard from "./components/Dashboard";
+import Menu from "./components/Menu";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/OurHostels" element={<ContactUs />} />
             {/* <Route path="/ContactUs" element={<ContactUs />} /> */}
             <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/Menu" element={<Menu />} />
           </Routes>
         </Router>
       </div>
