@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -94,11 +94,11 @@ const Navbar = (props: Props) => {
             : ""
         }`}
       >
-        <div className="max-w-screen-xl px-4 py-3 mx-auto flex justify-around items-center">
+        <div className="max-w-screen-xl px-4 py-3 mx-auto flex justify-between items-center">
           {isFixed && (
             <a
               href="#"
-              className="relative z-100 bg-white border-b-4 border-orange-500 rounded-full px-2 pb-2 ml-[-550px]"
+              className="relative z-100 bg-white border-b-4 border-orange-500 rounded-full px-2 pb-2 "
             >
               <img
                 src="https://www.nitrkl.ac.in/assets/images/logo.png"
@@ -110,13 +110,13 @@ const Navbar = (props: Props) => {
           )}
           <ul
             className={`flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm ${
-              isFixed ? "mt-[-20px] ml-[-700px]" : ""
+              isFixed ? "mt-[-25px] " : ""
             }`}
           >
             <li>
               <a
                 href="#"
-                className="text-gray-900 dark:text-white hover:underline"
+                className="text-black text-lg font-bold dark:text-white hover:underline"
                 aria-current="page"
               >
                 Home
@@ -125,7 +125,7 @@ const Navbar = (props: Props) => {
             <li>
               <a
                 href="#"
-                className="text-gray-900 dark:text-white hover:underline"
+                className="text-black text-lg font-bold dark:text-white hover:underline"
               >
                 Our Hostels
               </a>
@@ -133,7 +133,7 @@ const Navbar = (props: Props) => {
             <li>
               <a
                 href="#"
-                className="text-gray-900 dark:text-white hover:underline"
+                className="text-black text-lg font-bold dark:text-white hover:underline"
               >
                 Grievances
               </a>
@@ -141,12 +141,20 @@ const Navbar = (props: Props) => {
             <li>
               <a
                 href="#"
-                className="text-gray-900 dark:text-white hover:underline"
+                className="text-black text-lg font-bold dark:text-white hover:underline"
               >
                 HMC
               </a>
             </li>
           </ul>
+          {isFixed && (
+            <a
+              href="#"
+              className="text-lg px-4 py-2 mt-[-35px] shadow-lg hover:bg-sky-500 hover:ring-sky-500 hover:text-white rounded-[12px] ring-1 ring-black text-blue-600 dark:text-blue-500 -mt-0.5"
+            >
+              Sign Up
+            </a>
+          )}
         </div>
       </nav>
     </>
