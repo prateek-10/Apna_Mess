@@ -17,6 +17,7 @@ const Dashboard = (props: Props) => {
       if (user) {
         setUser(user);
         console.log(user);
+        console.log(user.user_metadata.name);
         return;
       }
       console.log("Not User Received");
@@ -40,25 +41,24 @@ const Dashboard = (props: Props) => {
             <div className="relative mr-3 md:mr-0 hidden md:block">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"></div>
               <span>
-                {" "}
                 {user ? (
-                  user.displayname ? (
-                    <span className="flex ">
+                  user.user_metadata.name ? (
+                    <span className="flex text-black">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         className="w-6 h-6 mx-2"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
                         />
                       </svg>{" "}
-                      {user.displayName}{" "}
+                      {user.user_metadata.name}
                     </span>
                   ) : (
                     <span className="flex">
@@ -66,39 +66,40 @@ const Dashboard = (props: Props) => {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         className="w-6 h-6 mx-2"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
                         />
                       </svg>
-                      {user.displayName} User
+                      User
                     </span>
                   )
                 ) : (
-                  <span>
+                  <span className="flex">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
-                      className="mx-2 w-6 h-6"
+                      className="w-6 h-6 mx-2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
                       />
                     </svg>
                     User
                   </span>
-                )}{" "}
+                )}
               </span>
+              ;
             </div>
             <button
               data-collapse-toggle="mobile-menu-3"
@@ -153,8 +154,8 @@ const Dashboard = (props: Props) => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M11.3103 1.77586C11.6966 1.40805 12.3034 1.40805 12.6897 1.77586L20.6897 9.39491L23.1897 11.7759C23.5896 12.1567 23.605 12.7897 23.2241 13.1897C22.8433 13.5896 22.2103 13.605 21.8103 13.2241L21 12.4524V20C21 21.1046 20.1046 22 19 22H14H10H5C3.89543 22 3 21.1046 3 20V12.4524L2.18966 13.2241C1.78972 13.605 1.15675 13.5896 0.775862 13.1897C0.394976 12.7897 0.410414 12.1567 0.810345 11.7759L3.31034 9.39491L11.3103 1.77586ZM5 10.5476V20H9V15C9 13.3431 10.3431 12 12 12C13.6569 12 15 13.3431 15 15V20H19V10.5476L12 3.88095L5 10.5476ZM13 20V15C13 14.4477 12.5523 14 12 14C11.4477 14 11 14.4477 11 15V20H13Z"
                       fill="#000000"
                     />
@@ -164,7 +165,7 @@ const Dashboard = (props: Props) => {
               </li>
               <li>
                 <a
-                  href="/home"
+                  href="/Menu"
                   className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 flex pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0"
                   aria-current="page"
                 >
@@ -232,18 +233,18 @@ const Dashboard = (props: Props) => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
                     className="w-6 h-5 mx-2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
                     />
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
@@ -283,9 +284,9 @@ const Dashboard = (props: Props) => {
             NIT-Rourkela Mess Service{" "}
           </h1>
         </div>
-        <div className="grid grid-cols-2 grid-rows-2 w-full h-full items-center justify-center text-black border-gray-200 bg-white">
+        {/* <div className="grid grid-cols-2 grid-rows-2 w-full h-full items-center justify-center text-black border-gray-200 bg-white">
           <div className="w-full h-full flex items-center justify-center bg-amber-300 text-5xl">
-            <a href="/home" className="w-full h-full">
+            <a href="/Menu" className="w-full h-full">
               {" "}
               <button className="tracking-wide font-semibold bg-amber-300 text-gray-100 w-full h-full py-4  hover:bg-amber-500 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                 Menu
@@ -316,7 +317,7 @@ const Dashboard = (props: Props) => {
               </button>
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
